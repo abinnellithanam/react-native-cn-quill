@@ -5,7 +5,6 @@ import {
   SafeAreaView,
   TouchableOpacity,
   TextInput,
-  Alert,
   View,
   Text,
 } from 'react-native';
@@ -50,7 +49,6 @@ export default class App extends React.Component<any, any> {
   handleGetHtml = () => {
     this._editor.current?.getHtml().then((res) => {
       console.log('Html :', res);
-      Alert.alert(res);
     });
   };
 
@@ -150,7 +148,6 @@ export default class App extends React.Component<any, any> {
           Quill.register(PlainListItem, true);
             
           `}
-          defaultFontFamily={customFonts[0].name}
           customFonts={customFonts}
           import3rdParties="cdn" // default value is 'local'
           initialHtml="<h1>Quill Editor for react-native</h1><img src='https://picsum.photos/200/300'/><br/><p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>"
@@ -187,7 +184,6 @@ export default class App extends React.Component<any, any> {
               { color: ['#000000', '#e60000', '#ff9900', 'yellow'] },
               { background: [] },
             ],
-            [{ font: ['', customFonts[1].name] }],
             ['image', 'clock'],
           ]}
           custom={{

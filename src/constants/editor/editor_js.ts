@@ -28,6 +28,14 @@ export const editor_js = `
                 data: {formats} });
       sendMessage(contentChanged);
   }
+  var getFormat = function (key) {
+    var formats = quill.getFormat();
+    var contentChanged = JSON.stringify({
+              type: 'get-format',
+              key: key,
+              data: formats });
+    sendMessage(contentChanged);
+  }
   //Format text at user’s current selection
   var formatSelection = function (name, value) {
     var range = quill.getSelection();
@@ -171,6 +179,9 @@ export const editor_js = `
         break;
       case 'getHtml':
         getHtml(msg.key);
+        break;
+      case 'getFormat':
+        getFormat(msg.key);
         break;
       case 'getLength':
         getLength(msg.key);

@@ -202,6 +202,12 @@ export default class QuillEditor extends React.Component<
           .filter((x) => x.event === message.type)
           .forEach((item) => item.handler(message.data));
         break;
+      case 'get-format':
+        if (response) {
+          response.resolve(message.data);
+          this._promises = this._promises.filter((x) => x.key !== message.key);
+        }
+        break;
       case 'format-change':
       case 'text-change':
       case 'selection-change':
@@ -280,6 +286,10 @@ export default class QuillEditor extends React.Component<
 
   getHtml = (): Promise<any> => {
     return this.postAwait<any>({ command: 'getHtml' });
+  };
+
+  getFormat = (): Promise<any> => {
+    return this.postAwait<any>({ command: 'getFormat'});
   };
 
   getLength = (): Promise<any> => {
