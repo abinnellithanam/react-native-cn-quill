@@ -1,13 +1,17 @@
 import { beyondWonderlandFontFace } from './fonts/beyond-wonderland';
-import { robotoFontFace } from './fonts/roboto';
+import { calibreLightFontFace,calibreRegularFontFace } from './fonts/calibre';
 
-export const customFonts = [
+export const customFonts:{ name: string, css: string }[] = [
   {
     name: 'Beyond Wonderland',
     css: beyondWonderlandFontFace,
   },
   {
-    name: 'Roboto',
-    css: robotoFontFace,
+    name: 'CalibreLight',
+    css: calibreLightFontFace,
+  },
+  {
+    name: 'CalibreRegular',
+    css: calibreRegularFontFace,
   },
 ];

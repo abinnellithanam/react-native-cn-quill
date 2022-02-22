@@ -27,7 +27,7 @@ export const editor_css = (
       .ql-font-${getFontName(f.name)} {
       font-family: "${f.name}";
       }
-    `;
+    `; 
   });
 
   return `
@@ -68,7 +68,13 @@ body { overflow-y: hidden; -webkit-overflow-scrolling: touch;background-color: $
 }
 
 .ql-container > .ql-editor.ql-blank::before{
-  color: ${placeholder};
+  color:  ${placeholder};
+  font-style: normal;
+}
+
+.ql-container {
+  font-size: 20px;
+  line-height: 23px;
 }
 
 ${fontCss}
